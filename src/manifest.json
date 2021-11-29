@@ -1,6 +1,7 @@
 {
   "manifest_version": 2,
   "name": "InhaGongG",
+  "description": "인하대학교 공지사항 빠르게 보기",
   "permissions": ["https://www.inha.ac.kr/bbs/kr/8/artclList.do"],
   "content_scripts": [
     {
