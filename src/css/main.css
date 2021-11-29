@@ -34,3 +34,7 @@ a {
 .title_text:hover {
   color: rgb(88, 44, 44);
 }
+.new {
+  color: #1216a5;
+  font-weight: bold;
+}

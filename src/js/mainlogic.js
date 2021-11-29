@@ -32,12 +32,16 @@ getAttTable = function () {
       // 헤드라인 안붙은 것만 뽑아냄
       if (!el.classList.length) {
         let main_el = el.querySelector("a"); // 하나의 row
-        let title = main_el.innerText; // 제목
         let link = new URL(main_el.href);
         link = att_url.origin + link.pathname; // 링크
 
         let node = document.createElement("li"); // popup.html의 ul에 들어갈 li
         node.classList.add("one_tr"); // css
+        if (main_el.childElementCount > 0) {
+          main_el.removeChild(main_el.childNodes[1]);
+          node.classList.add("new");
+        }
+        let title = main_el.innerText; // 제목
         node.innerText = title.replace(/\n/g, ""); // 제목 공백 모두 제거
         // 클릭시 새탭으로 이동
         node.onclick = function () {
