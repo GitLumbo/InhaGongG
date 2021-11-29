@@ -1,0 +1,16 @@
+html {
+  width: 600px;
+  height: 600px;
+  background: rgb(244, 250, 225);
+}
+button {
+  cursor: pointer;
+}
+#wait-over {
+  position: absolute;
+  top: 50vw;
+  left: 40vh;
+  text-align: center;
+  font-size: 25px;
+  background: rgb(244, 250, 225);
+}
