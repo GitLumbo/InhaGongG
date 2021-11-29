@@ -2,6 +2,13 @@
   "manifest_version": 2,
   "name": "InhaGongG",
   "permissions": ["https://www.inha.ac.kr/bbs/kr/8/artclList.do"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.inha.ac.kr/bbs/kr/8/*/artclView.do*popup*"],
+      "js": ["js/content-script.js"],
+      "all_frames": true
+    }
+  ],
   "browser_action": {
     "default_popup": "popup.html",
     "default_title": "InhaGongG"

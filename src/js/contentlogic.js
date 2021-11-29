@@ -4,7 +4,7 @@ window.onload = function () {
     document.querySelector("#wait-over").remove(); // '불러오는 중' 메세지 제거
   };
 
-  document.querySelector("iframe").src = src; // iframe 주소 설정
+  document.querySelector("iframe").src = src + "?popup"; // iframe 주소 설정
   document.querySelector("#back").addEventListener("click", () => {
     window.location.href = "popup.html"; // 뒤로가기 버튼
   });
