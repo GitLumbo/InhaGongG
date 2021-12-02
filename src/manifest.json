@@ -1,8 +1,8 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "InhaGongG",
   "description": "인하대학교 공지사항 빠르게 보기",
-  "permissions": ["https://www.inha.ac.kr/bbs/kr/8/artclList.do"],
+  "host_permissions": ["https://www.inha.ac.kr/bbs/kr/8/artclList.do"],
   "content_scripts": [
     {
       "matches": ["https://www.inha.ac.kr/bbs/kr/8/*/artclView.do*popup*"],
@@ -15,7 +15,7 @@
     "48": "icons/48.png",
     "128": "icons/128.png"
   },
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_title": "InhaGongG",
     "default_icon": {
