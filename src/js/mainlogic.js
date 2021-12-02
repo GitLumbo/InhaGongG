@@ -6,19 +6,22 @@ window.onload = function () {
 };
 // 공지사항 테이블 주소
 const att_url = new URL("https://www.inha.ac.kr/bbs/kr/8/artclList.do");
-req = new XMLHttpRequest();
-req.open("GET", att_url);
-req.send();
-getAttTable = function () {
-  if (req.readyState == "4") {
-    clearInterval(timer);
+fetch(att_url)
+  .then(function (response) {
+    return response.text();
+  })
+  .then(function (html) {
+    // Initialize the DOM parser
+    var parser = new DOMParser();
 
-    // 응답 html
-    const responsedoc = req.responseText;
-    // node 추출을 위해 div 생성
-    let box = document.createElement("div");
-    box.innerHTML = responsedoc;
-    let table = box.querySelector("table"); // 공지사항 테이블
+    // Parse the text
+    var doc = parser.parseFromString(html, "text/html");
+
+    // You can now even select part of that html as you would in the regular DOM
+    // Example:
+    // var docArticle = doc.querySelector('article').innerHTML;
+
+    let table = doc.querySelector("table"); // 공지사항 테이블
     let body = table.querySelector("tbody");
     let all = body.querySelectorAll("tr"); // 공지사항 row
 
@@ -58,6 +61,4 @@ getAttTable = function () {
 
     document.querySelector("#waiting").remove(); // '불러오는 중' 메세지 제거
     document.querySelector("#app").appendChild(createNode); // 최종적으로 #app에 붙임
-  }
-};
-timer = setInterval(getAttTable, 100);
+  });
